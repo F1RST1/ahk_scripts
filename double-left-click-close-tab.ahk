@@ -3,6 +3,13 @@
 ; Right now you can  get a coupon code here: https://the-Automator.com/Learn
 ;*******************************************************
 ~LButton::
+WinGetTitle, Title, A
+target := "Chromium"
+IfNotInString, Title, %target%
+{
+    ; ToolTip, ahk_id %id%`nahk_class %class%`n%title%`nControl: %control% %xpos% %ypos% (ypos < 10)
+    Return
+}
 if (a_timesincepriorhotkey != -1 && a_timesincepriorhotkey<200)
     cnt += 1
 else if (a_timesincepriorhotkey > 400)
@@ -29,7 +36,7 @@ if (var == "double click")
         }
         ; MsgBox, The active window is "%Title%".
         MouseGetPos, xpos, ypos, id, control
-        If (ypos < 10)
+        If (ypos < 50)
         {
             Send ^w
             ; ToolTip, ahk_id %id%`nahk_class %class%`n%title%`nControl: %control% %xpos% %ypos% (ypos < 10)
