@@ -1,38 +1,16 @@
-toggle := false
+; When CapsLock is held down with other keys, send remapped keys
 
-!n:: ; Alt+N toggles remapping
-    toggle := !toggle
+;; Make CapsLock act as a modifier only (don't toggle CapsLock state)
+;SetCapsLockState, AlwaysOff
 
-    ; Get work area size (excluding taskbar)
-    SysGet, MonitorWorkArea, MonitorWorkArea
-    right := MonitorWorkAreaRight
-    bottom := MonitorWorkAreaBottom
-
-    ; Offset so tooltip isn't blocked by the screen edge/taskbar
-    offsetX := 20
-    offsetY := 40
-
-    ; Show tooltip at bottom right
-    Tooltip, % (toggle ? "Remapping ENABLED" : "Remapping DISABLED"), % right - offsetX, % bottom - offsetY
-    SetTimer, RemoveTooltip, -1000
-return
-
-RemoveTooltip:
-    Tooltip
-return
-
-#If toggle
-
-u::SendInput 7
-i::SendInput 8
-o::SendInput 9
-j::SendInput 4
-k::SendInput 5
-l::SendInput 6
-m::SendInput 1
-,::SendInput 2
-.::SendInput 3
-Space::SendInput 0
-
-
-#If
+; Define remappings under CapsLock as a modifier
+CapsLock & u::SendInput 7
+CapsLock & i::SendInput 8
+CapsLock & o::SendInput 9
+CapsLock & j::SendInput 4
+CapsLock & k::SendInput 5
+CapsLock & l::SendInput 6
+CapsLock & m::SendInput 1
+CapsLock & ,::SendInput 2
+CapsLock & .::SendInput 3
+CapsLock & Space::SendInput 0
