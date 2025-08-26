@@ -1,3 +1,4 @@
+#Requires AutoHotkey v2.0
 ; When CapsLock is held down with other keys, send remapped keys
 
 ;; Make CapsLock act as a modifier only (don't toggle CapsLock state)
@@ -14,3 +15,14 @@ CapsLock & m::SendInput 1
 CapsLock & ,::SendInput 2
 CapsLock & .::SendInput 3
 CapsLock & Space::SendInput 0
+
+
+CapsLock & 0::SendInput("{Home}")
+CapsLock & -::SendInput("{Up}")
+CapsLock & =::SendInput("{End}")
+CapsLock & p::SendInput("{Left}")
+CapsLock & [::SendInput("{Down}")
+CapsLock & ]::SendInput("{Right}")
+CapsLock & Backspace::SendInput("{Delete}")
+
+
