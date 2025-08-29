@@ -15,7 +15,7 @@ clipChanged(dataType) {
         gitHashPattern := "^[a-fA-F0-9]{40}$"
 
         if (RegExMatch(clip1, gitHashPattern) && RegExMatch(clip2, gitHashPattern)) {
-            A_Clipboard := "git difftool --dir-diff --no-prompt " clip1 " " clip2
+            A_Clipboard := "git difftool --dir-diff --no-prompt " clip1 " " clip2 "`n"
         }
     }
 }
