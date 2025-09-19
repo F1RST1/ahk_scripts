@@ -1,4 +1,4 @@
-^LButton::
+^RButton::
 {
     Send("{MButton}")
     return
